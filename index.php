@@ -133,6 +133,7 @@ if($_GET['acc'] == 'e'&& $_GET['id']!=''){
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo" value="<?php echo $nombre ?>" required>
                                 <div class="invalid-feedback">
+                                    Nombres completo es obligatorio.
                                 </div>
                             </div>
                         </div>
@@ -141,7 +142,7 @@ if($_GET['acc'] == 'e'&& $_GET['id']!=''){
                             <div class="col-sm-6">
                                 <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" value="<?php echo $email ?>" required>
                                 <div class="invalid-feedback">
-
+                                    Correo electrónico es obligatorio.
                                 </div>
                             </div>
                         </div>
