@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 24-07-2021 a las 14:54:16
+-- Tiempo de generación: 24-07-2021 a las 16:20:58
 -- Versión del servidor: 10.3.29-MariaDB-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.20
 
@@ -70,14 +70,6 @@ CREATE TABLE `empleado_rol` (
   `rol_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `empleado_rol`
---
-
-INSERT INTO `empleado_rol` (`empleado_id`, `rol_id`) VALUES
-(1, 1),
-(1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -112,7 +104,15 @@ ALTER TABLE `areas`
 -- Indices de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `area_id` (`area_id`);
+
+--
+-- Indices de la tabla `empleado_rol`
+--
+ALTER TABLE `empleado_rol`
+  ADD KEY `rol_id` (`rol_id`),
+  ADD KEY `empleado_id` (`empleado_id`);
 
 --
 -- Indices de la tabla `roles`
@@ -141,6 +141,23 @@ ALTER TABLE `empleados`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  ADD CONSTRAINT `empleados_ibfk_1` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `empleado_rol`
+--
+ALTER TABLE `empleado_rol`
+  ADD CONSTRAINT `empleado_rol_ibfk_1` FOREIGN KEY (`empleado_id`) REFERENCES `empleados` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `empleado_rol_ibfk_2` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
