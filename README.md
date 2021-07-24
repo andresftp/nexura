@@ -1,6 +1,6 @@
 #Prueba de PHP para Nexura
 
-Para iniciar el proyecto es necesario ejecutar el siguiente comando en la razi del proyecto
+Para iniciar el proyecto es necesario ejecutar el siguiente comando en la raiz del proyecto
 ```composer
 composer update
 ```
