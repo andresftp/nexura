@@ -91,7 +91,7 @@ if($_GET['acc'] == 'e'&& $_GET['id']!=''){
         <div class="py-5 text-center">
         </div>
         <?php
-        if($_GET['acc']=='i'||$_GET['acc']=='e'||$_GET['acc']=='e'){
+        if($_GET['acc']=='i'||$_GET['acc']=='e'||$_GET['acc']=='d'){
             ?>
             <h5>Crear empleado</h5>
         <?php
