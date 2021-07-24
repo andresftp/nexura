@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('America/Bogota');
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 if(file_exists('vendor/autoload.php')){
     $vendor = 'vendor/autoload.php';
 }else{
